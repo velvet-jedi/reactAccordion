@@ -28,9 +28,12 @@
 	background-color: lightgray;
 	border-radius: 4px;
 	width: 100%;
-	transition: max-height 0.3s ease-in-out; /* Smooth animation */
+	transition: height 0.3s ease-in-out; /* Smooth animation */
 	overflow: hidden;
-	max-height: 0; /* Default: collapsed */
+	height: 0; /* Default: collapsed */
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .content > * {
@@ -40,7 +43,7 @@
 }
 
 .content.expanded {
-	max-height: 500px; /* Adjust based on expected content size */
+	height: 50px; /* Adjust based on expected content size */
 }
 .content.expanded > * {
 	opacity: 1;

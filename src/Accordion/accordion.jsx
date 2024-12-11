@@ -1,25 +1,22 @@
 import React from "react";
 import "./style.css";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
-const Accordion = ({ heading, children, index }) => {
-	const [expanded, setExpanded] = useState(false);
+const Accordion = ({ heading, children, index, expanded, onToggle }) => {
+	const contentRef = useRef(null);
 
-	function handleToggleCollapse() {
-		const flag = !expanded;
-		setExpanded(flag);
-		if (flag) {
-			const focusable = document.getElementById(`content-${index}`);
-			focusable?.focus({ preventScroll: true });
+	useEffect(() => {
+		if (expanded && contentRef.current) {
+			contentRef.current.focus();
 		}
-	}
+	}, [expanded]);
 
 	return (
 		<>
 			<div className="accordion">
 				<button
 					aria-expanded={expanded}
-					onClick={handleToggleCollapse}
+					onClick={onToggle}
 					className="heading"
 					aria-controls={`content-${index}`}
 					id={`heading-${index}`}
@@ -35,6 +32,7 @@ const Accordion = ({ heading, children, index }) => {
 
 				<div
 					aria-hidden={!expanded}
+					ref={contentRef}
 					id={`content-${index}`}
 					role="region"
 					tabIndex={0}

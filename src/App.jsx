@@ -1,5 +1,6 @@
 import Accordion from "./Accordion";
 import "./App.css";
+import { useState } from "react";
 
 function App() {
 	const accordionData = [
@@ -10,6 +11,13 @@ function App() {
 		{ heading: "Heading 5", content: "Content for accordion 5" },
 	];
 
+	const [expandedIndex, setExpandedIndex] = useState(null);
+	const handleToggle = (index) => {
+		// If clicking the already expanded accordion, close it
+		// Otherwise, set the new index
+		setExpandedIndex(expandedIndex === index ? null : index);
+	};
+
 	return (
 		<>
 			<div className="app-container">
@@ -18,6 +26,8 @@ function App() {
 						key={index}
 						heading={item.heading}
 						index={index}
+						expanded={expandedIndex === index}
+						onToggle={() => handleToggle(index)}
 					>
 						{item.content}
 					</Accordion>
