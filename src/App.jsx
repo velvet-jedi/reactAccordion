@@ -4,7 +4,12 @@ import "./App.css";
 function App() {
 	return (
 		<>
-			<Accordion />
+			<Accordion heading="Break a leg">
+				<h3>Press the bell icon</h3>
+				<h3>Press the bell icon</h3>
+				<h3>Press the bell icon</h3>
+				<h3>Press the bell icon</h3>
+			</Accordion>
 		</>
 	);
 }

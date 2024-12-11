@@ -1,0 +1,22 @@
+.accordion {
+	overflow: hidden;
+	width: 500px;
+}
+
+.heading {
+	background-color: lightsalmon;
+	border-radius: 4px;
+	padding: 0.5rem;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+	cursor: pointer;
+}
+
+.content {
+	background-color: lightgray;
+	border-radius: 4px;
+}
+
+.content > * {
+	padding: 0.5rem;
+}
