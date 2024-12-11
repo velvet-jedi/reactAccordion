@@ -18,8 +18,16 @@
 	background-color: lightgray;
 	border-radius: 4px;
 	width: 100%;
+	transition: max-height 0.3s ease-in-out; /* Smooth animation */
+
+	max-height: 0; /* Default: collapsed */
 }
 
 .content > * {
 	padding: 0.5rem;
+}
+
+.content.expanded {
+	transition: max-height 0.3s ease-in-out; /* Smooth animation */
+	max-height: 500px; /* Adjust based on expected content size */
 }

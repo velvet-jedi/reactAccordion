@@ -17,7 +17,9 @@ const Accordion = ({ heading, children }) => {
 				className="accordion"
 			>
 				<div className="heading">{heading}</div>
-				{expanded && <div className="content">{children}</div>}
+				<div className={`content ${expanded ? "expanded" : ""}`}>
+					{children}
+				</div>
 			</div>
 		</>
 	);
