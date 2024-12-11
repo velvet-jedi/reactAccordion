@@ -12,11 +12,13 @@ const Accordion = ({ heading, children }) => {
 
 	return (
 		<>
-			<div
-				onClick={handleToggleCollapse}
-				className="accordion"
-			>
-				<div className="heading">{heading}</div>
+			<div className="accordion">
+				<button
+					onClick={handleToggleCollapse}
+					className="heading"
+				>
+					{heading}													
+				</button>
 				<div className={`content ${expanded ? "expanded" : ""}`}>
 					{children}
 				</div>
