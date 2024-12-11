@@ -2,15 +2,15 @@ import React from "react";
 import "./style.css";
 import { useState } from "react";
 
-const Accordion = ({ heading, children }) => {
+const Accordion = ({ heading, children, index }) => {
 	const [expanded, setExpanded] = useState(false);
 
 	function handleToggleCollapse() {
 		const flag = !expanded;
 		setExpanded(flag);
 		if (flag) {
-			const focusable = document.getElementById("content-1");
-			focusable.focus({ preventScroll: true });
+			const focusable = document.getElementById(`content-${index}`);
+			focusable?.focus({ preventScroll: true });
 		}
 	}
 
@@ -21,19 +21,24 @@ const Accordion = ({ heading, children }) => {
 					aria-expanded={expanded}
 					onClick={handleToggleCollapse}
 					className="heading"
-					aria-controls="content-1"
-					id="heading-1"
+					aria-controls={`content-${index}`}
+					id={`heading-${index}`}
 				>
 					{heading}
-					<span aria-hidden="true" data-expanded={expanded}>&gt;</span>
+					<span
+						aria-hidden="true"
+						data-expanded={expanded}
+					>
+						&gt;
+					</span>
 				</button>
 
 				<div
 					aria-hidden={!expanded}
-					id="content-1"
+					id={`content-${index}`}
 					role="region"
 					tabIndex={0}
-					aria-labelledby="heading-1"
+					aria-labelledby={`heading-${index}`}
 					className={`content ${expanded ? "expanded" : ""}`}
 				>
 					{children}
