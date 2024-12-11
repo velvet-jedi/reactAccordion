@@ -19,7 +19,7 @@ const Accordion = ({ heading, children }) => {
 				>
 					{heading}													
 				</button>
-				<div className={`content ${expanded ? "expanded" : ""}`}>
+				<div aria-hidden={!expanded} className={`content ${expanded ? "expanded" : ""}`}>
 					{children}
 				</div>
 			</div>
