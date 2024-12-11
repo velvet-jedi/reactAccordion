@@ -11,6 +11,11 @@
 	width: 100%;
 	margin-bottom: 1rem;
 	cursor: pointer;
+	display: flex;
+	justify-content: space-between;
+	padding-left: 2rem;
+	align-items: center;
+	padding-right: 2rem;
 }
 
 .content {
@@ -29,4 +34,11 @@
 .content.expanded {
 	transition: max-height 0.3s ease-in-out; /* Smooth animation */
 	max-height: 500px; /* Adjust based on expected content size */
+}
+
+.heading span[data-expanded="true"] {
+	transform: rotate(90deg);
+	transition: transform 0.3s ease-in-out;
+	display: inline-block;
+	transform-origin: center;
 }

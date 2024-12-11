@@ -6,8 +6,12 @@ const Accordion = ({ heading, children }) => {
 	const [expanded, setExpanded] = useState(false);
 
 	function handleToggleCollapse() {
-		setExpanded(!expanded);
-		console.log(expanded);
+		const flag = !expanded;
+		setExpanded(flag);
+		if (flag) {
+			const focusable = document.getElementById("content-1");
+			focusable.focus({ preventScroll: true });
+		}
 	}
 
 	return (
@@ -18,12 +22,18 @@ const Accordion = ({ heading, children }) => {
 					onClick={handleToggleCollapse}
 					className="heading"
 					aria-controls="content-1"
+					id="heading-1"
 				>
 					{heading}
+					<span aria-hidden="true" data-expanded={expanded}>&gt;</span>
 				</button>
+
 				<div
 					aria-hidden={!expanded}
 					id="content-1"
+					role="region"
+					tabIndex={0}
+					aria-labelledby="heading-1"
 					className={`content ${expanded ? "expanded" : ""}`}
 				>
 					{children}
