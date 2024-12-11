@@ -16,6 +16,6 @@
 -   Accessiblity rules:
     -   Semantic elements (NEVER USE A DIV AS A CLICKABLE ELEMENT)
     -   explicitly ttell the browser that a element is hidden using aria-hidden=true, and aria-expanded (to the visibility controlling element)
-    -   couple the visibility controlling button with the controlled expanding element using aria-controls
+    -   couple the visibility controlling button with the controlled expanding element using aria-controls (linked by id)
     -   dynamically added content should be focused automatically
     -   keyboard operable

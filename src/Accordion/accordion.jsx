@@ -17,11 +17,13 @@ const Accordion = ({ heading, children }) => {
 					aria-expanded={expanded}
 					onClick={handleToggleCollapse}
 					className="heading"
+					aria-controls="content-1"
 				>
 					{heading}
 				</button>
 				<div
 					aria-hidden={!expanded}
+					id="content-1"
 					className={`content ${expanded ? "expanded" : ""}`}
 				>
 					{children}
